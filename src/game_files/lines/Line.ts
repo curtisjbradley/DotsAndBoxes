@@ -1,4 +1,4 @@
-import Direction from "./Direction";
+import Direction from './Direction';
 
 class Line {
     private readonly x: number; // x of top left most dot
@@ -11,28 +11,29 @@ class Line {
         this.direction = direction;
     }
 
-public getX() : number {
-    return this.x;
-}
+    public getX(): number {
+        return this.x;
+    }
 
-public getY(): number {
-    return this.y;
-}
+    public getY(): number {
+        return this.y;
+    }
 
-public getDirection() : Direction {
-    return this.direction;
-}
+    public getDirection(): Direction {
+        return this.direction;
+    }
 
-
-
-public toString(): string {
-    return "Line{" +
-        "x=" + this.x +
-        ", y=" + this.y +
-        ", direction=" + this.direction +
-        '}';
-}
-
-
+    public toString(): string {
+        return (
+            'Line{' +
+            'x=' +
+            this.x +
+            ', y=' +
+            this.y +
+            ', direction=' +
+            this.direction +
+            '}'
+        );
+    }
 }
 export default Line;

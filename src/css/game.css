@@ -1,5 +1,5 @@
 .playableMove {
-    fill:gray;
+    fill: gray;
     opacity: 10%;
 }
 .playableMove:hover {
@@ -9,16 +9,22 @@
     fill: black;
 }
 
-.player1Line{
-    fill:red;
+.player1Line {
+    fill: red;
 }
-.player2Line{
-    fill:blue;
+.player2Line {
+    fill: blue;
 }
 
 .player1Box {
-    fill:yellow;
+    fill: red;
+    opacity: 0.5;
 }
 .player2Box {
-    fill:rebeccapurple;
+    fill: blue;
+    opacity: 0.5;
+}
+.game {
+    width: 75vh;
+    height: 75vh;
 }
