@@ -1,0 +1,24 @@
+.playableMove {
+    fill:gray;
+    opacity: 10%;
+}
+.playableMove:hover {
+    opacity: 40%;
+}
+.dot {
+    fill: black;
+}
+
+.player1Line{
+    fill:red;
+}
+.player2Line{
+    fill:blue;
+}
+
+.player1Box {
+    fill:yellow;
+}
+.player2Box {
+    fill:rebeccapurple;
+}

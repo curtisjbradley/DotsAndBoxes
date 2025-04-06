@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+dot {
+  color: white;
+}
+
+.grid {
+  display: grid;
+  color: red;
+  padding: 1rem;
+}
+.boxes-cell {
+  padding-top: 0rem;
+  padding-left: 1rem;
+  left: 1px;
+}
