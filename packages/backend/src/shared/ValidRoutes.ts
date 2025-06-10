@@ -2,6 +2,9 @@ export const FrontEndRoutes = {
     HOME: "/",
     LOGIN: "/login",
     REGISTER: "/register",
+    PROFILE: "/profile/:profileId",
+    MY_GAMES: "/mygames",
+    GAME: "/game/:gameId",
 }
 
 export const BackEndRoutes = {

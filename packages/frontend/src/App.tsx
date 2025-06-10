@@ -1,30 +1,52 @@
-
 import {Route, Routes} from "react-router";
 import {MainLayout} from "./panels/MainLayout.tsx";
 import {Home} from "./static-pages/Home.tsx";
 import {Login} from "./auth/Login.tsx";
 import {FrontEndRoutes} from "dots_and_boxes_backend/src/shared/ValidRoutes.ts";
 import {useMemo, useState} from "react";
-import {type IUserContext, UserContext} from "./context/UserContext.tsx";
+import {type IUserContext, type IUserData, UserContext} from "./context/UserContext.tsx";
 import {NotFound} from "./static-pages/NotFound.tsx";
 import {TokenReader} from "./auth/TokenReader.tsx";
+import {jwtDecode} from "jwt-decode";
+import {Profile} from "./profile/Profile.tsx";
+import {Game} from "./game/Game.tsx";
+import {ProtectedRoute} from "./auth/ProtectedRoute.tsx";
+
+
+interface IJwtTokenData {
+    username: string;
+    iat: number;
+    exp: number;
+}
+
 
 export function App(){
-    const [token, setToken] = useState<string | null>(null);
+    const [userData, setUserData] = useState<IUserData | null>(createUserData(localStorage.getItem("token")));
+
+    function createUserData(token: string | null): IUserData | null {
+        if(!token) return null
+        const decodedData: IJwtTokenData = jwtDecode(token)
+        return {
+            token: token,
+            userName: decodedData.username,
+        };
+    }
 
     const updateToken = (newToken: string | null) => {
-        setToken(newToken);
-        if(newToken !== null) {
+        if(newToken) {
             localStorage.setItem("token", newToken);
         } else {
             localStorage.removeItem("token");
         }
+
+        setUserData(createUserData(newToken));
     }
+
     const context : IUserContext = useMemo(() : IUserContext => {
         return {
-            token, setToken: updateToken,
+             setToken: updateToken, userData
         }
-    },[token])
+    },[userData])
 
     return (
         <UserContext.Provider value={context}>
@@ -34,6 +56,10 @@ export function App(){
                         <Route index element={<Home />} />
                         <Route path={FrontEndRoutes.LOGIN} element={<Login registering={false}/>} />
                         <Route path={FrontEndRoutes.REGISTER} element={<Login registering={true}/>} />
+                        <Route path={"/"} element={<ProtectedRoute />}>
+                            <Route path={FrontEndRoutes.PROFILE} element={<Profile />} />
+                            <Route path={FrontEndRoutes.GAME} element={<Game />} />
+                        </Route>
                         <Route path={"*"} element={<NotFound />} />
                     </Route>
             </Routes>

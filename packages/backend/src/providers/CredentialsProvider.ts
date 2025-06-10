@@ -1,10 +1,12 @@
-import { Collection, MongoClient } from "mongodb";
+import {Collection, MongoClient} from "mongodb";
 import bcrypt from "bcrypt";
 
 interface ICredentialsDocument {
     username: string;
     password: string;
+    createdAt: Date;
 }
+
 
 export class CredentialsProvider {
     private readonly collection: Collection<ICredentialsDocument>;
@@ -21,13 +23,15 @@ export class CredentialsProvider {
         return this.collection.find().toArray()
     }
 
+
+
     async registerUser(username: string, plaintextPassword: string) {
 
         return await bcrypt.hash(plaintextPassword,10).then(hash => {
             if(!hash){
                 throw new Error("Could not hash the password");
             }
-            this.collection.insertOne({username: username, password: hash})
+            this.collection.insertOne({username, password: hash, createdAt: new Date()})
             return true;
         }).finally(() => {
                 return false;

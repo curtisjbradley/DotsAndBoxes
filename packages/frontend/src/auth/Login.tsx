@@ -71,7 +71,7 @@ export function Login(props: ILoginProps) {
                 {result != 201 && <p aria-live={"polite"} style={{color: "red"}}>{getErrorMessage(result)}</p> }
             </form>
             {props.registering ?
-                <p>Already have an account? Login <Link to={FrontEndRoutes.REGISTER}>here.</Link></p>
+                <p>Already have an account? Login <Link to={FrontEndRoutes.LOGIN}>here.</Link></p>
             :
                 <p>Don't have an account? Create one <Link to={FrontEndRoutes.REGISTER}>here.</Link></p>
             }

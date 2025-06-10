@@ -12,7 +12,7 @@ export function Header() {
         <header>
             <h1><Link to={FrontEndRoutes.HOME}>Dots and Boxes</Link> </h1>
             <div>
-                    {userData.token ? <LoggedInNav /> : <LoggedOutNav />}
+                    {userData.userData?.token ? <LoggedInNav /> : <LoggedOutNav />}
             </div>
         </header>
     )
