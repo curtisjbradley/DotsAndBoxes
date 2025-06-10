@@ -1,15 +1,12 @@
-// @ts-ignore
-import './css/App.css';
-// @ts-ignore
-import './css/game.css';
-import Game from './game_files/Game.js';
+
+import Game from './Game.ts';
 import {useEffect, useState} from 'react';
-import Board from './game_files/Board';
-import Direction from './game_files/lines/Direction';
-import PlayedLine from './game_files/lines/PlayedLine';
-import Line from './game_files/lines/Line';
-import { Box } from './game_files/lines/Box';
-import Players from './game_files/Players';
+import Board from './Board.ts';
+import Direction from './lines/Direction.ts';
+import PlayedLine from './lines/PlayedLine.ts';
+import Line from './lines/Line.ts';
+import { Box } from './lines/Box.ts';
+import Players from './Players.ts';
 
 const GameWindow = ({ game }: { game: Game }) => {
 

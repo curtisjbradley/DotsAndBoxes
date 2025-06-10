@@ -1,0 +1,26 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 0 2em;
+}
+
+header div {
+    display: flex;
+    gap: 3em;
+}
+
+header nav {
+    display: flex;
+    gap: 1em;
+}
+
+
+header a:visited, header a:link {
+    text-decoration: none;
+    color: var(--link-color);
+}
+header a:hover {
+    text-decoration: underline;
+}

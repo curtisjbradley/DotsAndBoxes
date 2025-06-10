@@ -1,0 +1,26 @@
+### Hit the register Route
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{"username":  "chunkylover23", "password":  "password"}
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{"username":  "chunkylover23", "password":  "password"}
+
+### Bad Password
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{"username":  "newuser", "password":  "bad password"}
+
+### Get Login
+GET http://localhost:3000/auth/login
+Content-Type: application/json
+
+### No Body
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
