@@ -12,4 +12,4 @@ jobs:
           username: cjbradle
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd ~/DotsAndBoxes && git fetch --all && git reset --hard origin && npm i && cd packages/frontend && npm i && npm run build && cd ../backend/ && npm i && killall node || nohup npm start && exit
+          script: cd ~/DotsAndBoxes && git fetch --all && git reset --hard origin && npm i && cd packages/frontend && npm i && npm run build && cd ../backend/ && npm i && killall node || nohup npm start || exit 0
