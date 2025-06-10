@@ -1,0 +1,15 @@
+name: Push to VPS
+on: [push]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: cjbradle
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: cd DotsAndBoxes && git pull && npm i && cd packages/frontend && npm i && npm run build && cd ../backend/ && npm i && nohup npm start && exit
