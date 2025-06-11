@@ -8,7 +8,7 @@ import {BackEndRoutes} from "../shared/ValidRoutes";
 
 
 export function registerAuthRoutes(app: express.Application, userProvider: CredentialsProvider){
-    app.post("/auth/register", (req, res) => {
+    app.post(BackEndRoutes.REGISTER, (req, res) => {
         if(!req.body.username || !req.body.password){
             res.status(400).send("Username and password are required");
             return

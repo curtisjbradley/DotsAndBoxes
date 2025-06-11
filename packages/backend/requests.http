@@ -24,3 +24,7 @@ Content-Type: application/json
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
+### Get Login
+GET http://localhost:3000/api/games
+Content-Type: application/json
+

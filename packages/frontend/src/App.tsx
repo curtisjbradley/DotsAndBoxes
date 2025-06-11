@@ -9,8 +9,9 @@ import {NotFound} from "./static-pages/NotFound.tsx";
 import {TokenReader} from "./auth/TokenReader.tsx";
 import {jwtDecode} from "jwt-decode";
 import {Profile} from "./profile/Profile.tsx";
-import {Game} from "./game/Game.tsx";
+import {GameView} from "./game/GameView.tsx";
 import {ProtectedRoute} from "./auth/ProtectedRoute.tsx";
+import {MyGames} from "./profile/MyGames.tsx";
 
 
 interface IJwtTokenData {
@@ -58,7 +59,8 @@ export function App(){
                         <Route path={FrontEndRoutes.REGISTER} element={<Login registering={true}/>} />
                         <Route path={"/"} element={<ProtectedRoute />}>
                             <Route path={FrontEndRoutes.PROFILE} element={<Profile />} />
-                            <Route path={FrontEndRoutes.GAME} element={<Game />} />
+                            <Route path={FrontEndRoutes.GAME} element={<GameView />} />
+                            <Route path={FrontEndRoutes.MY_GAMES} element={<MyGames />} />
                         </Route>
                         <Route path={"*"} element={<NotFound />} />
                     </Route>

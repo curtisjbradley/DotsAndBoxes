@@ -10,4 +10,6 @@ export const FrontEndRoutes = {
 export const BackEndRoutes = {
     LOGIN: "/auth/login",
     REGISTER: "/auth/register",
+    GAMES: "/api/games",
+    GAME: "/api/game/:gameId",
 }
