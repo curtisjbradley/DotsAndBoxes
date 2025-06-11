@@ -1,5 +1,3 @@
-export function Home () {
-    return (
-        <p>Home</p>
-    )
+export function Home() {
+    return <p>Home</p>;
 }

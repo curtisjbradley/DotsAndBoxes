@@ -1,7 +1,6 @@
-
 interface IViewProfileProps {
-    user: string
+    user: string;
 }
 export function ViewProfile(props: IViewProfileProps) {
-    return <p>{props.user}</p>
+    return <p>{props.user}</p>;
 }

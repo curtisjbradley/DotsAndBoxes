@@ -16,8 +16,8 @@ header nav {
     gap: 1em;
 }
 
-
-header a:visited, header a:link {
+header a:visited,
+header a:link {
     text-decoration: none;
     color: var(--link-color);
 }

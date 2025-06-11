@@ -1,7 +1,6 @@
-
 interface IEditProfileProps {
-    user: string
+    user: string;
 }
 export function EditableProfile(props: IEditProfileProps) {
-    return <p> Edit! {props.user}</p>
+    return <p> Edit! {props.user}</p>;
 }
