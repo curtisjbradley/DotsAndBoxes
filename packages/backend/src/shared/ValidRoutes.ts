@@ -5,6 +5,8 @@ export const FrontEndRoutes = {
     PROFILE: "/profile/:profileId",
     MY_GAMES: "/mygames",
     GAME: "/game/:gameId",
+    NEW_GAME: "newGame",
+    VIEW_INVITE:"/invite/:inviteId",
 }
 
 export const BackEndRoutes = {
@@ -12,4 +14,5 @@ export const BackEndRoutes = {
     REGISTER: "/auth/register",
     GAMES: "/api/games",
     GAME: "/api/game/:gameId",
+    INVITE: "/api/invite/:inviteId",
 }

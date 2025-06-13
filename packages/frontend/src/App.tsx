@@ -16,6 +16,8 @@ import { Profile } from './profile/Profile.tsx';
 import { GameView } from './game/GameView.tsx';
 import { ProtectedRoute } from './auth/ProtectedRoute.tsx';
 import { MyGames } from './profile/MyGames.tsx';
+import {NewGame} from "./game/NewGame.tsx";
+import {ViewInvite} from "./game/ViewInvite.tsx";
 
 interface IJwtTokenData {
     username: string;
@@ -81,6 +83,8 @@ export function App() {
                             path={FrontEndRoutes.MY_GAMES}
                             element={<MyGames />}
                         />
+                        <Route path={FrontEndRoutes.NEW_GAME} element={<NewGame />} />
+                        <Route path={FrontEndRoutes.VIEW_INVITE} element={<ViewInvite />} />
                     </Route>
                     <Route path={'*'} element={<NotFound />} />
                 </Route>

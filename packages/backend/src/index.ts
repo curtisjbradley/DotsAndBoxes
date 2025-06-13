@@ -5,6 +5,8 @@ import {registerAuthRoutes} from "./routes/authRoutes";
 import {CredentialsProvider} from "./providers/CredentialsProvider";
 import {GameProvider} from "./providers/GameProvider";
 import {registerGameRoutes} from "./routes/gameRoutes";
+import {InviteProvider} from "./providers/InviteProvider";
+import {registerInviteRoutes} from "./routes/inviteRoutes";
 
 dotenv.config(); // Read the .env file in the current working directory, and load values into process.env.
 const PORT = process.env.PORT || 3000;
@@ -18,14 +20,11 @@ app.use(express.static(STATIC_DIR));
 const mongoClient = connectMongo()
 const credentialsProvider = new CredentialsProvider(mongoClient);
 const gameProvider = new GameProvider(mongoClient);
-
+const inviteProvider = new InviteProvider(mongoClient);
 
 registerAuthRoutes(app, credentialsProvider);
 registerGameRoutes(app, gameProvider);
-
-app.get("/hello", (req: Request, res: Response) => {
-    res.send("Hello, World");
-});
+registerInviteRoutes(app, inviteProvider);
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);

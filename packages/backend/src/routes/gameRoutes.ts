@@ -2,9 +2,10 @@ import express from "express";
 
 import {BackEndRoutes} from "../shared/ValidRoutes";
 import {GameProvider} from "../providers/GameProvider";
+import {verifyAuthToken} from "../tokenAuth";
 
 export function registerGameRoutes(app: express.Application, gameProvider: GameProvider){
-    app.get(BackEndRoutes.GAMES, (req, res) => {
+    app.get(BackEndRoutes.GAMES, verifyAuthToken, (req, res) => {
 
 
         if(!req.query?.id) {

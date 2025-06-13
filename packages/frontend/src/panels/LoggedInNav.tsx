@@ -14,6 +14,7 @@ export function LoggedInNav() {
 
     return (
         <nav>
+            <Link to={FrontEndRoutes.NEW_GAME}>New Game</Link>
             <Link to={FrontEndRoutes.MY_GAMES}>My Games</Link>
             <Link to={'/profile/' + userData.userData?.userName}>
                 {userData.userData?.userName}
